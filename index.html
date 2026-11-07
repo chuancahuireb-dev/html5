@@ -117,6 +117,60 @@
             color: #2A1201;
             text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2), -1px -1px 1px rgba(0, 0, 0, 0.8);
         }
+
+        /* Botones estilizados de la barra de navegación */
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.8125rem;
+            font-weight: 700;
+            letter-spacing: 0.025em;
+            color: #F9F4EE;
+            background-color: transparent;
+            border: 1px solid transparent;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-btn:hover {
+            color: #D4AF37;
+            background-color: rgba(110, 18, 34, 0.6);
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-btn.active {
+            color: #3A0710;
+            background-color: #D4AF37;
+            border-color: #E6C65A;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Botones navegación para el menú móvil */
+        .mobile-nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #F9F4EE;
+            background-color: rgba(82, 12, 23, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.2s ease;
+        }
+
+        .mobile-nav-btn:hover {
+            background-color: rgba(110, 18, 34, 0.9);
+            color: #D4AF37;
+            border-color: rgba(212, 175, 55, 0.4);
+            padding-left: 1.25rem;
+        }
     </style>
 </head>
 <body class="bg-wine-pattern min-h-screen flex flex-col antialiased selection:bg-dorado selection:text-negro">
@@ -139,13 +193,28 @@
                     </div>
                 </a>
 
-                <!-- Menú Escritorio -->
-                <nav class="hidden md:flex items-center gap-8">
-                    <a href="#inicio" class="text-sm font-semibold text-crema hover:text-dorado transition-colors">Inicio</a>
-                    <a href="#catalogo" class="text-sm font-semibold text-crema hover:text-dorado transition-colors">Catálogo Completo</a>
-                    <a href="#materiales" class="text-sm font-semibold text-crema hover:text-dorado transition-colors">Cuero & Textiles</a>
-                    <a href="#cotizador" class="text-sm font-semibold text-crema hover:text-dorado transition-colors">Cotizador Vivo</a>
-                    <a href="#contacto" class="text-sm font-semibold text-crema hover:text-dorado transition-colors">Taller & Contacto</a>
+                <!-- Menú Escritorio Mejorado con Estilos de Botón -->
+                <nav class="hidden md:flex items-center gap-2 lg:gap-3 bg-vino-deep/60 p-1.5 rounded-2xl border border-dorado/20 shadow-inner">
+                    <a href="#inicio" class="nav-btn">
+                        <i class="fa-solid fa-house text-dorado/80 text-xs"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="#catalogo" class="nav-btn">
+                        <i class="fa-solid fa-layer-group text-dorado/80 text-xs"></i>
+                        <span>Catálogo</span>
+                    </a>
+                    <a href="#materiales" class="nav-btn">
+                        <i class="fa-solid fa-shield-halved text-dorado/80 text-xs"></i>
+                        <span>Materiales</span>
+                    </a>
+                    <a href="#cotizador" class="nav-btn">
+                        <i class="fa-solid fa-calculator text-dorado/80 text-xs"></i>
+                        <span>Cotizador</span>
+                    </a>
+                    <a href="#contacto" class="nav-btn">
+                        <i class="fa-solid fa-location-dot text-dorado/80 text-xs"></i>
+                        <span>Contacto</span>
+                    </a>
                 </nav>
 
                 <!-- Cotización Cart Widget -->
@@ -156,7 +225,7 @@
                         <span id="cart-badge" class="bg-vino text-white text-xs font-extrabold w-5 h-5 rounded-full flex items-center justify-center border border-dorado">0</span>
                     </button>
 
-                    <button id="btn-menu-mobile" class="md:hidden p-2.5 rounded-xl bg-vino-light text-crema hover:text-dorado">
+                    <button id="btn-menu-mobile" class="md:hidden p-2.5 rounded-xl bg-vino-light text-crema hover:text-dorado border border-dorado/30">
                         <i class="fa-solid fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -164,13 +233,28 @@
             </div>
         </div>
 
-        <!-- Menú Móvil Desplegable -->
-        <div id="mobile-menu" class="hidden md:hidden bg-vino-dark border-b border-dorado/30 px-4 py-4 space-y-3">
-            <a href="#inicio" class="block py-2 text-base font-medium text-crema hover:text-dorado">Inicio</a>
-            <a href="#catalogo" class="block py-2 text-base font-medium text-crema hover:text-dorado">Catálogo Completo</a>
-            <a href="#materiales" class="block py-2 text-base font-medium text-crema hover:text-dorado">Cuero & Textiles</a>
-            <a href="#cotizador" class="block py-2 text-base font-medium text-crema hover:text-dorado">Cotizador Vivo</a>
-            <a href="#contacto" class="block py-2 text-base font-medium text-crema hover:text-dorado">Taller & Contacto</a>
+        <!-- Menú Móvil Desplegable Estilizado -->
+        <div id="mobile-menu" class="hidden md:hidden bg-vino-dark border-b border-dorado/30 px-4 py-4 space-y-2.5 shadow-2xl">
+            <a href="#inicio" class="mobile-nav-btn">
+                <i class="fa-solid fa-house text-dorado w-5 text-center"></i>
+                <span>Inicio</span>
+            </a>
+            <a href="#catalogo" class="mobile-nav-btn">
+                <i class="fa-solid fa-layer-group text-dorado w-5 text-center"></i>
+                <span>Catálogo Completo</span>
+            </a>
+            <a href="#materiales" class="mobile-nav-btn">
+                <i class="fa-solid fa-shield-halved text-dorado w-5 text-center"></i>
+                <span>Cuero & Textiles</span>
+            </a>
+            <a href="#cotizador" class="mobile-nav-btn">
+                <i class="fa-solid fa-calculator text-dorado w-5 text-center"></i>
+                <span>Cotizador Vivo</span>
+            </a>
+            <a href="#contacto" class="mobile-nav-btn">
+                <i class="fa-solid fa-location-dot text-dorado w-5 text-center"></i>
+                <span>Taller & Contacto</span>
+            </a>
         </div>
     </header>
 
@@ -919,7 +1003,31 @@
             setupFilterEvents();
             setupCalculatorEvents();
             setupMonogramEvents();
+            setupActiveNavState();
         });
+
+        // Activa visualmente el botón según el scroll
+        function setupActiveNavState() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-btn');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 120;
+                    if (window.scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
 
         // RENDERIZADO DEL CATÁLOGO DE PRODUCTOS (Tarjetas Pergamino Crema con Letras Negras)
         function renderProducts() {
