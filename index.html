@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cueros & Afines | Confección en Cuero y Textiles</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Cinzel Decorative / Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Fondo principal: Rojo Vino Profundo (#520C17, #3D0811)
+                        vino: {
+                            DEFAULT: '#520C17',
+                            dark: '#3A0710',
+                            deep: '#2D040A',
+                            light: '#6E1222',
+                            glow: '#85172B'
+                        },
+                        // Letras y Tarjetas de Alto Contraste (Letras Negras #000000 sobre Crema/Pergamino)
+                        negro: {
+                            DEFAULT: '#000000',
+                            pure: '#000000',
+                            soft: '#1A1A1A',
+                            muted: '#333333'
+                        },
+                        crema: {
+                            DEFAULT: '#F9F4EE',
+                            card: '#FAF5EF',
+                            light: '#FFFFFF',
+                            accent: '#EFE3D5',
+                            border: '#DBC9B5'
+                        },
+                        dorado: {
+                            DEFAULT: '#D4AF37',
+                            light: '#E6C65A',
+                            dark: '#AA851C'
+                        },
+                        cuero: {
+                            DEFAULT: '#7B3F00',
+                            light: '#965015',
+                            tan: '#C18554'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos globales y personalización de legibilidad */
+        body {
+            background-color: #520C17;
+            color: #000000;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Scrollbar elegante */
+        ::-webkit-scrollbar {
+            width: 9px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #3A0710;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E6C65A;
+        }
+
+        /* Textura sutil de fondo borgoña */
+        .bg-wine-pattern {
+            background-color: #520C17;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(133, 23, 43, 0.4) 0%, transparent 65%),
+                radial-gradient(circle at 100% 100%, rgba(58, 7, 16, 0.8) 0%, transparent 50%);
+        }
+
+        /* Tarjeta Pergamino para asegurar texto 100% NEGRO nítido */
+        .card-cream {
+            background-color: #FAF5EF;
+            color: #000000;
+            border: 1px solid #DBC9B5;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-cream-hover:hover {
+            border-color: #D4AF37;
+            transform: translateY(-4px);
+            box-shadow: 0 18px 35px -5px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.25);
+        }
+
+        /* Monograma grabado a fuego simulado */
+        .leather-emboss {
+            background: linear-gradient(145deg, #6B340B 0%, #4A2204 100%);
+            box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6), inset -2px -2px 5px rgba(255, 255, 255, 0.1);
+        }
+        .text-emboss {
+            color: #2A1201;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2), -1px -1px 1px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-wine-pattern min-h-screen flex flex-col antialiased selection:bg-dorado selection:text-negro">
+
+    <!-- HEADER DE NAVEGACIÓN -->
+    <header class="sticky top-0 z-40 bg-vino-dark/95 backdrop-blur-md border-b border-dorado/30 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-dorado to-dorado-dark flex items-center justify-center text-vino-dark shadow-lg shadow-dorado/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-crown text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-2xl font-bold tracking-tight text-white block leading-none">
+                            CUEROS <span class="text-dorado">&</span> AFINES
+                        </span>
+                        <span class="text-[10px] uppercase tracking-widest text-crema-accent font-medium">Confección & Marroquinería Fine</span>
+                    </div>
+                </a>
+
+                <!-- Menú Escritorio -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#inicio" class="text-sm font-semibold text-crema hover:text-dorado transition-colors">Inicio</a>
+                    <a href="#catalogo" class="text-sm font-semibold text-crema hover:text-dorado transition-colors">Catálogo Completo</a>
+                    <a href="#materiales" class="text-sm font-semibold text-crema hover:text-dorado transition-colors">Cuero & Textiles</a>
+                    <a href="#cotizador" class="text-sm font-semibold text-crema hover:text-dorado transition-colors">Cotizador Vivo</a>
+                    <a href="#contacto" class="text-sm font-semibold text-crema hover:text-dorado transition-colors">Taller & Contacto</a>
+                </nav>
+
+                <!-- Cotización Cart Widget -->
+                <div class="flex items-center gap-4">
+                    <button id="btn-cart-drawer" class="relative p-2.5 rounded-xl bg-crema text-negro font-bold hover:bg-dorado transition-all flex items-center gap-2 shadow-lg group">
+                        <i class="fa-solid fa-briefcase text-vino text-lg group-hover:scale-110 transition-transform"></i>
+                        <span class="hidden sm:inline text-xs font-bold uppercase tracking-wider">Mi Cotización</span>
+                        <span id="cart-badge" class="bg-vino text-white text-xs font-extrabold w-5 h-5 rounded-full flex items-center justify-center border border-dorado">0</span>
+                    </button>
+
+                    <button id="btn-menu-mobile" class="md:hidden p-2.5 rounded-xl bg-vino-light text-crema hover:text-dorado">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-vino-dark border-b border-dorado/30 px-4 py-4 space-y-3">
+            <a href="#inicio" class="block py-2 text-base font-medium text-crema hover:text-dorado">Inicio</a>
+            <a href="#catalogo" class="block py-2 text-base font-medium text-crema hover:text-dorado">Catálogo Completo</a>
+            <a href="#materiales" class="block py-2 text-base font-medium text-crema hover:text-dorado">Cuero & Textiles</a>
+            <a href="#cotizador" class="block py-2 text-base font-medium text-crema hover:text-dorado">Cotizador Vivo</a>
+            <a href="#contacto" class="block py-2 text-base font-medium text-crema hover:text-dorado">Taller & Contacto</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- HERO SECTION BANNER PRINCIPAL -->
+        <section id="inicio" class="relative py-16 lg:py-24 overflow-hidden border-b border-dorado/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-crema/10 border border-dorado/40 text-dorado text-xs font-bold uppercase tracking-widest shadow-md">
+                            <i class="fa-solid fa-gem text-dorado"></i> Taller Artesanal de Marroquinería
+                        </div>
+
+                        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">
+                            Arte & Elegancia en <span class="text-transparent bg-clip-text bg-gradient-to-r from-dorado-light via-dorado to-amber-200">Cuero Genuino</span> y Textiles Exclusivos
+                        </h1>
+
+                        <!-- Tarjeta descriptiva con fondo crema y letras negras -->
+                        <div class="card-cream p-6 rounded-2xl space-y-3">
+                            <p class="text-negro font-medium text-base sm:text-lg leading-relaxed">
+                                Especialistas en la confección de <strong>carteras, mochilas, calzado, correas, billeteras, morrales y monederos</strong>. Diseños para <strong>Dama y Caballero</strong> combinando la resistencia del cuero vacuno legítimo con finas telas textiles seleccionadas.
+                            </p>
+                            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                                <a href="#catalogo" class="px-6 py-3 rounded-xl bg-negro text-white font-bold text-xs uppercase tracking-wider hover:bg-vino transition-colors shadow-md flex items-center gap-2">
+                                    <i class="fa-solid fa-layer-group text-dorado"></i> Explorar Catálogo
+                                </a>
+                                <a href="#cotizador" class="px-6 py-3 rounded-xl bg-vino text-white font-bold text-xs uppercase tracking-wider border border-dorado hover:bg-vino-light transition-colors shadow-md flex items-center gap-2">
+                                    <i class="fa-solid fa-calculator text-dorado"></i> Cotizar Pedido
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Stats / Badges -->
+                        <div class="grid grid-cols-3 gap-4 pt-2 text-center max-w-lg mx-auto lg:mx-0">
+                            <div class="p-3 rounded-xl bg-vino-dark/80 border border-dorado/30">
+                                <span class="block text-2xl font-serif font-bold text-dorado">100%</span>
+                                <span class="text-xs text-crema-accent">Cuero Legítimo</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-vino-dark/80 border border-dorado/30">
+                                <span class="block text-2xl font-serif font-bold text-dorado">Dama &</span>
+                                <span class="text-xs text-crema-accent">Caballero</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-vino-dark/80 border border-dorado/30">
+                                <span class="block text-2xl font-serif font-bold text-dorado">Textil+</span>
+                                <span class="text-xs text-crema-accent">Cuero Fusiones</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Showcase Visual Hero -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <div class="absolute -inset-2 rounded-3xl bg-gradient-to-r from-dorado via-vino-light to-dorado opacity-50 blur-xl"></div>
+                            
+                            <div class="relative card-cream p-4 rounded-3xl shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80" 
+                                     alt="Colección Cueros y Afines" 
+                                     class="w-full h-80 sm:h-96 object-cover rounded-2xl border border-crema-border"
+                                     onerror="this.src='https://placehold.co/600x600/520C17/D4AF37?text=Cueros+y+Afines'">
+                                
+                                <div class="mt-4 p-4 rounded-xl bg-vino text-white flex items-center justify-between border border-dorado/40">
+                                    <div>
+                                        <p class="text-xs font-bold uppercase tracking-wider text-dorado">Garantía de Taller</p>
+                                        <p class="text-sm font-semibold">Costuras Reforzadas & Herrajes Antioxidantes</p>
+                                    </div>
+                                    <span class="w-10 h-10 rounded-full bg-dorado text-vino flex items-center justify-center font-bold text-lg">
+                                        <i class="fa-solid fa-award"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CATÁLOGO INTERACTIVO CON FILTROS -->
+        <section id="catalogo" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-dorado bg-vino-dark px-3 py-1 rounded-full border border-dorado/30">Nuestros Productos</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2 mb-3">
+                    Catálogo de Confección & Artículos
+                </h2>
+                <p class="text-crema-accent text-sm sm:text-base">
+                    Selecciona y combina filtros para encontrar carteras, mochilas, calzado, correas, billeteras, morrales o monederos.
+                </p>
+            </div>
+
+            <!-- Panel de Control de Filtros (Fondo Crema con Letras Negras para Alta Claridad) -->
+            <div class="card-cream rounded-2xl p-6 mb-10 space-y-6 shadow-2xl">
+                
+                <!-- Buscador y Ordenamiento -->
+                <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                    <div class="relative w-full md:w-96">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-negro-muted"></i>
+                        <input type="text" id="search-input" placeholder="Buscar cartera, mocasín, billetera, textil..." 
+                               class="w-full pl-11 pr-4 py-3 rounded-xl bg-white border border-crema-border text-negro font-semibold text-sm focus:outline-none focus:ring-2 focus:ring-vino">
+                    </div>
+
+                    <div class="flex items-center gap-3 w-full md:w-auto justify-end">
+                        <label class="text-xs font-bold uppercase text-negro">Ordenar por:</label>
+                        <select id="sort-select" class="px-3 py-2.5 rounded-xl bg-white border border-crema-border text-negro font-bold text-xs focus:outline-none focus:ring-2 focus:ring-vino">
+                            <option value="default">Recomendados</option>
+                            <option value="price-asc">Precio: Menor a Mayor</option>
+                            <option value="price-desc">Precio: Mayor a Menor</option>
+                            <option value="name-asc">Nombre (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <hr class="border-crema-border">
+
+                <!-- Filtro por Categorías de Productos -->
+                <div>
+                    <span class="block text-xs font-extrabold uppercase tracking-wider text-negro mb-3">
+                        <i class="fa-solid fa-tags text-vino"></i> Categoría de Artículo:
+                    </span>
+                    <div class="flex flex-wrap gap-2" id="filter-categories">
+                        <button data-cat="all" class="cat-btn active px-4 py-2 rounded-xl text-xs font-bold bg-vino text-white shadow-md">
+                            Todos los Artículos
+                        </button>
+                        <button data-cat="carteras" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-negro border border-crema-border hover:bg-vino hover:text-white transition-all">
+                            <i class="fa-solid fa-bag-shopping mr-1 text-dorado-dark"></i> Carteras
+                        </button>
+                        <button data-cat="mochilas" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-negro border border-crema-border hover:bg-vino hover:text-white transition-all">
+                            <i class="fa-solid fa-user-ninja mr-1 text-dorado-dark"></i> Mochilas
+                        </button>
+                        <button data-cat="calzado" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-negro border border-crema-border hover:bg-vino hover:text-white transition-all">
+                            <i class="fa-solid fa-shoe-prints mr-1 text-dorado-dark"></i> Calzado
+                        </button>
+                        <button data-cat="correas" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-negro border border-crema-border hover:bg-vino hover:text-white transition-all">
+                            <i class="fa-solid fa-ring mr-1 text-dorado-dark"></i> Correas
+                        </button>
+                        <button data-cat="billeteras" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-negro border border-crema-border hover:bg-vino hover:text-white transition-all">
+                            <i class="fa-solid fa-wallet mr-1 text-dorado-dark"></i> Billeteras
+                        </button>
+                        <button data-cat="morrales" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-negro border border-crema-border hover:bg-vino hover:text-white transition-all">
+                            <i class="fa-solid fa-briefcase mr-1 text-dorado-dark"></i> Morrales
+                        </button>
+                        <button data-cat="monederos" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-negro border border-crema-border hover:bg-vino hover:text-white transition-all">
+                            <i class="fa-solid fa-coins mr-1 text-dorado-dark"></i> Monederos
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filtros Secundarios: Género y Material -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Género -->
+                    <div class="bg-white p-3 rounded-xl border border-crema-border">
+                        <span class="block text-xs font-extrabold uppercase tracking-wider text-negro mb-2">Público Destinado:</span>
+                        <div class="flex gap-2" id="filter-gender">
+                            <button data-gender="all" class="gender-btn active flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-vino text-white text-center">
+                                Todos
+                            </button>
+                            <button data-gender="dama" class="gender-btn flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-crema text-negro border border-crema-border hover:bg-vino hover:text-white text-center">
+                                <i class="fa-solid fa-venus mr-1 text-pink-600"></i> Dama
+                            </button>
+                            <button data-gender="caballero" class="gender-btn flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-crema text-negro border border-crema-border hover:bg-vino hover:text-white text-center">
+                                <i class="fa-solid fa-mars mr-1 text-blue-600"></i> Caballero
+                            </button>
+                            <button data-gender="unisex" class="gender-btn flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-crema text-negro border border-crema-border hover:bg-vino hover:text-white text-center">
+                                Unisex
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Material -->
+                    <div class="bg-white p-3 rounded-xl border border-crema-border">
+                        <span class="block text-xs font-extrabold uppercase tracking-wider text-negro mb-2">Composición del Material:</span>
+                        <div class="flex gap-2" id="filter-material">
+                            <button data-mat="all" class="mat-btn active flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-vino text-white text-center">
+                                Todos
+                            </button>
+                            <button data-mat="cuero" class="mat-btn flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-crema text-negro border border-crema-border hover:bg-vino hover:text-white text-center">
+                                100% Cuero Genuino
+                            </button>
+                            <button data-mat="textil-cuero" class="mat-btn flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-crema text-negro border border-crema-border hover:bg-vino hover:text-white text-center">
+                                Tela Textil + Cuero
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Grilla de Productos Confeccionados -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Se llena mediante JS -->
+            </div>
+
+            <!-- Estado Vacío -->
+            <div id="no-products" class="hidden card-cream text-center py-16 rounded-2xl">
+                <i class="fa-solid fa-box-open text-5xl text-vino mb-3"></i>
+                <h3 class="font-serif text-2xl font-bold text-negro">No se encontraron artículos</h3>
+                <p class="text-negro-muted text-sm mt-1">Prueba seleccionando otra combinación de categoría, público o material.</p>
+                <button id="btn-reset-filters" class="mt-4 px-6 py-2.5 bg-vino text-white font-bold rounded-xl text-xs uppercase tracking-wider hover:bg-vino-light transition-all shadow-md">
+                    Restablecer Filtros
+                </button>
+            </div>
+
+        </section>
+
+        <!-- SECCIÓN DE NUESTROS MATERIALES Y PROCESO -->
+        <section id="materiales" class="py-16 bg-vino-dark border-y border-dorado/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-xs font-bold uppercase tracking-widest text-dorado">Calidad Garantizada</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-1 mb-3">
+                        Nuestra Materia Prima & Fusión Textil
+                    </h2>
+                    <p class="text-crema-accent text-sm sm:text-base">
+                        Seleccionamos minuciosamente cada piel vacuna y cada rollo de tela textil para lograr artículos de máxima durabilidad y estética superior.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Tarjeta 1: Cuero 100% Genuino -->
+                    <div class="card-cream p-6 rounded-2xl space-y-4 shadow-xl">
+                        <div class="w-14 h-14 rounded-2xl bg-vino text-dorado flex items-center justify-center text-2xl shadow-lg border border-dorado/40">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-xl text-negro">100% Cuero Vacuno Seleccionado</h3>
+                        <p class="text-negro-muted text-xs leading-relaxed">
+                            Cueros de grano entero curtidos vegetalmente o al cromo. Ofrecen suavidad al tacto, flexibilidad inigualable y ese aroma inconfundible del cuero legítimo que mejora con los años.
+                        </p>
+                        <span class="inline-block text-[11px] font-extrabold uppercase bg-vino/10 text-vino px-3 py-1 rounded-md">
+                            Excelente Durabilidad
+                        </span>
+                    </div>
+
+                    <!-- Tarjeta 2: Fusión Textil + Cuero -->
+                    <div class="card-cream p-6 rounded-2xl space-y-4 shadow-xl">
+                        <div class="w-14 h-14 rounded-2xl bg-vino text-dorado flex items-center justify-center text-2xl shadow-lg border border-dorado/40">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-xl text-negro">Telas Textiles + Apliques en Cuero</h3>
+                        <p class="text-negro-muted text-xs leading-relaxed">
+                            Combinación de lonas Canvas impermeables, telas Jacquard con patrones étnicos o modernos, reforzadas con solapas, correas y esquineros de cuero natural para mayor firmeza.
+                        </p>
+                        <span class="inline-block text-[11px] font-extrabold uppercase bg-vino/10 text-vino px-3 py-1 rounded-md">
+                            Diseños Ligeros & Modernos
+                        </span>
+                    </div>
+
+                    <!-- Tarjeta 3: Herrajes y Costuras -->
+                    <div class="card-cream p-6 rounded-2xl space-y-4 shadow-xl">
+                        <div class="w-14 h-14 rounded-2xl bg-vino text-dorado flex items-center justify-center text-2xl shadow-lg border border-dorado/40">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-xl text-negro">Herrajes & Costura de Alta Resistencia</h3>
+                        <p class="text-negro-muted text-xs leading-relaxed">
+                            Costuras reforzadas con hilo de nylon encerado n° 40 o 60. Remaches, hebillas y cremalleras de bronce o níquel resistentes al desgaste e hidratación periódica de cuero.
+                        </p>
+                        <span class="inline-block text-[11px] font-extrabold uppercase bg-vino/10 text-vino px-3 py-1 rounded-md">
+                            Acabados de Exportación
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MODULO DE COTIZADOR INTERACTIVO Y MONOGRAMA -->
+        <section id="cotizador" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                
+                <!-- Info y Grabado -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-dorado bg-vino-dark px-3 py-1 rounded-full border border-dorado/30">Personalización</span>
+                        <h2 class="font-serif text-3xl font-bold text-white mt-2">
+                            Simulador de Grabado & Pedidos Especiales
+                        </h2>
+                        <p class="text-crema-accent text-sm mt-2">
+                            Personaliza tus carteras, billeteras o morrales con iniciales o nombres grabados térmicamente sobre cuero genuino. Ideal para regalos ejecutivos o corporativos.
+                        </p>
+                    </div>
+
+                    <!-- Simulador de Monograma Grabado -->
+                    <div class="card-cream p-6 rounded-2xl space-y-4 shadow-2xl">
+                        <h3 class="font-serif font-bold text-lg text-negro flex items-center justify-between">
+                            <span>Simulador de Grabado Térmico</span>
+                            <i class="fa-solid fa-stamp text-vino"></i>
+                        </h3>
+                        
+                        <!-- Placa de Cuero Simulado -->
+                        <div class="leather-emboss rounded-xl h-36 flex flex-col items-center justify-center p-4 text-center border-2 border-dorado/50">
+                            <span class="text-[10px] text-amber-200 uppercase tracking-widest mb-1">CUEROS & AFINES - PERÚ</span>
+                            <div id="monogram-preview" class="text-emboss font-serif text-3xl font-extrabold tracking-widest uppercase my-1">
+                                C . A . G .
+                            </div>
+                            <span class="text-[9px] text-amber-100 font-serif italic">Grabado a Fuego Garantizado</span>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-negro uppercase mb-1">Ingresa tus Iniciales o Nombre:</label>
+                            <input type="text" id="monogram-text" value="C.A.G." maxlength="12" 
+                                   class="w-full px-4 py-2.5 rounded-xl bg-white border border-crema-border text-negro font-mono text-center tracking-widest font-bold focus:outline-none focus:ring-2 focus:ring-vino">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulador de Cotización Viva -->
+                <div class="lg:col-span-7">
+                    <div class="card-cream p-6 sm:p-8 rounded-2xl shadow-2xl space-y-5">
+                        <div class="flex items-center justify-between border-b border-crema-border pb-4">
+                            <div>
+                                <h3 class="font-serif text-2xl font-bold text-negro">Cotizador Automático en Vivo</h3>
+                                <p class="text-xs text-negro-muted">Configura tu modelo ideal y obtén un estimado al instante.</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-xl bg-vino text-dorado flex items-center justify-center text-xl shadow">
+                                <i class="fa-solid fa-calculator"></i>
+                            </div>
+                        </div>
+
+                        <form id="quote-calculator-form" class="space-y-4">
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- Tipo de Artículo -->
+                                <div>
+                                    <label class="block text-xs font-extrabold uppercase text-negro mb-1">Tipo de Artículo:</label>
+                                    <select id="calc-product" class="w-full px-4 py-2.5 rounded-xl bg-white border border-crema-border text-negro font-bold text-xs focus:outline-none focus:ring-2 focus:ring-vino">
+                                        <option value="cartera" data-base="180">Cartera Fina (Base S/. 180)</option>
+                                        <option value="mochila" data-base="160">Mochila (Base S/. 160)</option>
+                                        <option value="calzado" data-base="220">Calzado / Zapato (Base S/. 220)</option>
+                                        <option value="correa" data-base="55">Correa (Base S/. 55)</option>
+                                        <option value="billetera" data-base="48">Billetera (Base S/. 48)</option>
+                                        <option value="morral" data-base="130">Morral (Base S/. 130)</option>
+                                        <option value="monedero" data-base="35">Monedero (Base S/. 35)</option>
+                                    </select>
+                                </div>
+
+                                <!-- Género -->
+                                <div>
+                                    <label class="block text-xs font-extrabold uppercase text-negro mb-1">Público / Género:</label>
+                                    <select id="calc-gender" class="w-full px-4 py-2.5 rounded-xl bg-white border border-crema-border text-negro font-bold text-xs focus:outline-none focus:ring-2 focus:ring-vino">
+                                        <option value="dama">Para Dama</option>
+                                        <option value="caballero">Para Caballero</option>
+                                        <option value="unisex">Estilo Unisex</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- Material -->
+                                <div>
+                                    <label class="block text-xs font-extrabold uppercase text-negro mb-1">Material Predominante:</label>
+                                    <select id="calc-material" class="w-full px-4 py-2.5 rounded-xl bg-white border border-crema-border text-negro font-bold text-xs focus:outline-none focus:ring-2 focus:ring-vino">
+                                        <option value="cuero" data-mult="1.0">100% Cuero Genuino Vacuno</option>
+                                        <option value="textil-cuero" data-mult="0.85">Tela Textil + Cuero Combinado (-15%)</option>
+                                    </select>
+                                </div>
+
+                                <!-- Grabado Adicional -->
+                                <div>
+                                    <label class="block text-xs font-extrabold uppercase text-negro mb-1">Servicio de Grabado:</label>
+                                    <select id="calc-engraving" class="w-full px-4 py-2.5 rounded-xl bg-white border border-crema-border text-negro font-bold text-xs focus:outline-none focus:ring-2 focus:ring-vino">
+                                        <option value="no" data-add="0">Sin Grabado</option>
+                                        <option value="si" data-add="15">Con Iniciales Grabadas (+ S/. 15.00)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- Cantidad -->
+                                <div>
+                                    <label class="block text-xs font-extrabold uppercase text-negro mb-1">Cantidad de Unidades:</label>
+                                    <input type="number" id="calc-qty" min="1" max="500" value="1" 
+                                           class="w-full px-4 py-2.5 rounded-xl bg-white border border-crema-border text-negro font-bold text-xs focus:outline-none focus:ring-2 focus:ring-vino">
+                                </div>
+
+                                <!-- Descuento por Volumen Visual -->
+                                <div>
+                                    <label class="block text-xs font-extrabold uppercase text-negro mb-1">Tipo de Compra:</label>
+                                    <div id="calc-type-badge" class="px-4 py-2.5 rounded-xl bg-vino/10 text-vino font-extrabold text-xs flex items-center justify-between">
+                                        <span>Compra al Detalle</span>
+                                        <i class="fa-solid fa-shopping-bag"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Desglose de Cálculo -->
+                            <div class="bg-white p-4 rounded-xl border border-crema-border flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-bold text-negro-muted uppercase block">Cotización Estimada</span>
+                                    <span id="calc-total-display" class="font-serif text-3xl font-extrabold text-vino">S/. 180.00</span>
+                                </div>
+                                <button type="button" id="btn-send-calc-whatsapp" class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-colors flex items-center gap-2">
+                                    <i class="fa-brands fa-whatsapp text-base"></i> Solicitar por WhatsApp
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE CONTACTO Y UBICACIÓN -->
+        <section id="contacto" class="py-16 bg-vino-dark border-t border-dorado/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <div class="lg:col-span-5 space-y-6">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-dorado bg-vino px-3 py-1 rounded-full border border-dorado/30">Ubicación y Pedidos</span>
+                            <h2 class="font-serif text-3xl font-bold text-white mt-2">Visita Nuestro Taller</h2>
+                            <p class="text-crema-accent text-sm mt-2">
+                                Atendemos consultas al por menor, pedidos corporativos para empresas y envíos a todo el país.
+                            </p>
+                        </div>
+
+                        <!-- Tarjetas de información de contacto (Crema con Texto Negro) -->
+                        <div class="space-y-4">
+                            <div class="card-cream p-4 rounded-xl flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-vino text-dorado flex items-center justify-center shrink-0 font-bold">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-negro text-sm">Dirección del Taller</h4>
+                                    <p class="text-negro-muted text-xs">Av. Prolongación Marroquinería 845, Sector Industrial, Lima, Perú</p>
+                                </div>
+                            </div>
+
+                            <div class="card-cream p-4 rounded-xl flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-vino text-dorado flex items-center justify-center shrink-0 font-bold">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-negro text-sm">Teléfonos Directos</h4>
+                                    <p class="text-negro-muted text-xs">+51 987 654 321 / +51 912 345 678</p>
+                                </div>
+                            </div>
+
+                            <div class="card-cream p-4 rounded-xl flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-vino text-dorado flex items-center justify-center shrink-0 font-bold">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-negro text-sm">Correo Electrónico</h4>
+                                    <p class="text-negro-muted text-xs">contacto@cuerosyafines.pe</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de Mensaje -->
+                    <div class="lg:col-span-7">
+                        <form id="contact-form" class="card-cream p-6 sm:p-8 rounded-2xl shadow-2xl space-y-4">
+                            <h3 class="font-serif text-2xl font-bold text-negro mb-1">Enviar Consulta al Taller</h3>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-negro mb-1">Tu Nombre Completo *</label>
+                                    <input type="text" required placeholder="Ej. Ana María Torres" 
+                                           class="w-full px-4 py-2.5 rounded-xl bg-white border border-crema-border text-negro text-xs font-bold focus:outline-none focus:ring-2 focus:ring-vino">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-negro mb-1">Teléfono / WhatsApp *</label>
+                                    <input type="tel" required placeholder="Ej. 987654321" 
+                                           class="w-full px-4 py-2.5 rounded-xl bg-white border border-crema-border text-negro text-xs font-bold focus:outline-none focus:ring-2 focus:ring-vino">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-negro mb-1">Tipo de Interés</label>
+                                <select class="w-full px-4 py-2.5 rounded-xl bg-white border border-crema-border text-negro text-xs font-bold focus:outline-none focus:ring-2 focus:ring-vino">
+                                    <option value="compra">Compra de Artículos en Stock</option>
+                                    <option value="corporativo">Pedido Corporativo / Grabado de Logo</option>
+                                    <option value="mayorista">Distribución / Venta al por Mayor</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-negro mb-1">Mensaje o Detalle del Pedido *</label>
+                                <textarea rows="4" required placeholder="Escribe aquí los modelos de carteras, mochilas, calzado o correas que necesitas..." 
+                                          class="w-full px-4 py-2.5 rounded-xl bg-white border border-crema-border text-negro text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-vino"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 bg-vino hover:bg-vino-light text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane text-dorado"></i> Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-vino-deep border-t border-dorado/30 text-crema-accent py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-dorado text-vino flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-lg font-bold text-white">CUEROS & AFINES</span>
+                        <p class="text-[11px] text-crema-accent">© 2026 Todos los derechos reservados. Marroquinería Fina.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="#" class="w-9 h-9 rounded-full bg-vino-dark border border-dorado/40 hover:bg-dorado hover:text-vino flex items-center justify-center transition-colors">
+                        <i class="fa-brands fa-facebook-f text-xs"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-vino-dark border border-dorado/40 hover:bg-dorado hover:text-vino flex items-center justify-center transition-colors">
+                        <i class="fa-brands fa-instagram text-xs"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-vino-dark border border-dorado/40 hover:bg-dorado hover:text-vino flex items-center justify-center transition-colors">
+                        <i class="fa-brands fa-whatsapp text-xs"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- DRAWER DE MI COTIZACIÓN / CARRITO -->
+    <div id="cart-drawer-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden">
+        <div class="fixed inset-y-0 right-0 max-w-full flex">
+            <div class="w-screen max-w-md card-cream shadow-2xl flex flex-col">
+                
+                <div class="p-6 bg-vino text-white flex items-center justify-between border-b border-dorado/40">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-briefcase text-dorado text-xl"></i>
+                        <h3 class="font-serif text-xl font-bold">Mi Lista de Cotización</h3>
+                    </div>
+                    <button id="btn-close-cart" class="w-8 h-8 rounded-full bg-vino-dark text-crema hover:text-dorado flex items-center justify-center">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div id="cart-items-list" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <!-- Dinámico -->
+                </div>
+
+                <div class="p-6 bg-white border-t border-crema-border space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold uppercase text-negro">Subtotal Referencial:</span>
+                        <span id="cart-total-price" class="font-serif text-2xl font-extrabold text-vino">S/. 0.00</span>
+                    </div>
+
+                    <button id="btn-cart-whatsapp" class="w-full py-3.5 bg-green-600 hover:bg-green-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Enviar Lista por WhatsApp
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE VISTA RÁPIDA DE PRODUCTO -->
+    <div id="quickview-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="card-cream max-w-2xl w-full rounded-3xl p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh]">
+            <button id="btn-close-modal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-vino text-white flex items-center justify-center hover:bg-vino-light">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modal-body" class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                <!-- Se inyecta dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/51987654321?text=Hola,%20quisiera%20cotizar%20artículos%20en%20cuero%20y%20textil." 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-30 w-14 h-14 rounded-full bg-green-500 text-white flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform"
+       title="Consultar por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- TOAST NOTIFICACIÓN -->
+    <div id="toast-container" class="fixed top-24 right-5 z-50 flex flex-col gap-2"></div>
+
+    <!-- JAVASCRIPT LÓGICA Y CATÁLOGO -->
+    <script>
+        // BASE DE DATOS DE PRODUCTOS DE CUEROS Y AFINES
+        const productsList = [
+            {
+                id: 1,
+                name: "Cartera Totem Ejecutiva Dama",
+                category: "carteras",
+                gender: "dama",
+                material: "cuero",
+                price: 180.00,
+                img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80",
+                badge: "100% Cuero Vacuno",
+                desc: "Cartera rígida con doble asa reforzada, herrajes bañados en bronce y amplio espacio interior con forro textil satinado."
+            },
+            {
+                id: 2,
+                name: "Cartera Tote Textil Jacquard & Cuero",
+                category: "carteras",
+                gender: "dama",
+                material: "textil-cuero",
+                price: 145.00,
+                img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80",
+                badge: "Textil Canvas + Cuero",
+                desc: "Exclusivo diseño combinando patrón textil étnico Jacquard con asas y base en cuero vacuno natural."
+            },
+            {
+                id: 3,
+                name: "Mochila Urbana Laptop 15.6''",
+                category: "mochilas",
+                gender: "caballero",
+                material: "textil-cuero",
+                price: 160.00,
+                img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
+                badge: "Canvas Resistente + Cuero",
+                desc: "Mochila ejecutiva ligera de lona impermeabilizada con solapa y correas ajustables de grueso cuero vacuno."
+            },
+            {
+                id: 4,
+                name: "Mochila Elegance Dama Soft",
+                category: "mochilas",
+                gender: "dama",
+                material: "cuero",
+                price: 175.00,
+                img: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80",
+                badge: "100% Cuero Napa",
+                desc: "Mochila suave de textura Napa con múltiples compartimentos de cierre seguro y broches imantados."
+            },
+            {
+                id: 5,
+                name: "Mocasín Artesanal Vestir Caballero",
+                category: "calzado",
+                gender: "caballero",
+                material: "cuero",
+                price: 220.00,
+                img: "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=600&q=80",
+                badge: "Cuero Genuino",
+                desc: "Zapato de vestir estilo Mocasín confeccionado en flor de cuero con suela antideslizante y plantilla ergonómica."
+            },
+            {
+                id: 6,
+                name: "Botín Casual Heritage Dama",
+                category: "calzado",
+                gender: "dama",
+                material: "cuero",
+                price: 245.00,
+                img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=600&q=80",
+                badge: "Cuero Vacuno Encerado",
+                desc: "Botín de cuero vacuno tratado con ceras naturales. Tacón estable de 4cm y cierre lateral de bronce."
+            },
+            {
+                id: 7,
+                name: "Correa Reversible Negro / Marrón",
+                category: "correas",
+                gender: "caballero",
+                material: "cuero",
+                price: 55.00,
+                img: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=600&q=80",
+                badge: "Cuero Doble Faz",
+                desc: "Correa de vestir reversible con hebilla giratoria inoxidables. Doble tono de cuero genuino en una sola pieza."
+            },
+            {
+                id: 8,
+                name: "Correa Textil Bordada & Puntera Cuero",
+                category: "correas",
+                gender: "dama",
+                material: "textil-cuero",
+                price: 42.00,
+                img: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=600&q=80",
+                badge: "Textil + Pila Cuero",
+                desc: "Correa de diseño artesanal textil con trenzado resistente y punteras reforzadas en cuero natural."
+            },
+            {
+                id: 9,
+                name: "Billetera Slim RFID Monedero",
+                category: "billeteras",
+                gender: "caballero",
+                material: "cuero",
+                price: 48.00,
+                img: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80",
+                badge: "Cuero Floater",
+                desc: "Billetera ultra delgada con bloqueo antirobo RFID, tarjetero desplegable y compartimento seguro para billetes."
+            },
+            {
+                id: 10,
+                name: "Morral Crossbody Unisex Jacquard",
+                category: "morrales",
+                gender: "unisex",
+                material: "textil-cuero",
+                price: 130.00,
+                img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
+                badge: "Textil + Ribetes Cuero",
+                desc: "Morral cruzado compacto ideal para llevar tablet y documentos diarios con correa graduable."
+            },
+            {
+                id: 11,
+                name: "Morral Ejecutivo 100% Cuero",
+                category: "morrales",
+                gender: "caballero",
+                material: "cuero",
+                price: 195.00,
+                img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80",
+                badge: "Cuero Vacuno Rigido",
+                desc: "Morral de estructura formal con porta laptop acolchado, broches metálicos y correa de cuero con hombrera."
+            },
+            {
+                id: 12,
+                name: "Monedero Zipper Compact Dama",
+                category: "monederos",
+                gender: "dama",
+                material: "cuero",
+                price: 35.00,
+                img: "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?auto=format&fit=crop&w=600&q=80",
+                badge: "Cuero Flor Suave",
+                desc: "Monedero con cierre de bronce completo, llavero interno y 2 divisiones organizadoras."
+            }
+        ];
+
+        // ESTADO GLOBAL DE LA APP
+        let quoteCart = [];
+        let activeCategory = 'all';
+        let activeGender = 'all';
+        let activeMaterial = 'all';
+        let searchQuery = '';
+        let sortOption = 'default';
+
+        // ELEMENTOS DOM
+        const productGrid = document.getElementById('product-grid');
+        const noProducts = document.getElementById('no-products');
+        const cartBadge = document.getElementById('cart-badge');
+        const cartDrawer = document.getElementById('cart-drawer-overlay');
+        const cartItemsList = document.getElementById('cart-items-list');
+        const cartTotalPrice = document.getElementById('cart-total-price');
+        const quickviewModal = document.getElementById('quickview-modal');
+        const modalBody = document.getElementById('modal-body');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            setupFilterEvents();
+            setupCalculatorEvents();
+            setupMonogramEvents();
+        });
+
+        // RENDERIZADO DEL CATÁLOGO DE PRODUCTOS (Tarjetas Pergamino Crema con Letras Negras)
+        function renderProducts() {
+            let filtered = productsList.filter(item => {
+                const matchCat = activeCategory === 'all' || item.category === activeCategory;
+                const matchGender = activeGender === 'all' || item.gender === activeGender;
+                const matchMat = activeMaterial === 'all' || item.material === activeMaterial;
+                const matchSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                    item.desc.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchCat && matchGender && matchMat && matchSearch;
+            });
+
+            // Ordenamiento
+            if (sortOption === 'price-asc') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortOption === 'price-desc') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (sortOption === 'name-asc') {
+                filtered.sort((a, b) => a.name.localeCompare(b.name));
+            }
+
+            productGrid.innerHTML = '';
+
+            if (filtered.length === 0) {
+                noProducts.classList.remove('hidden');
+                return;
+            } else {
+                noProducts.classList.add('hidden');
+            }
+
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'card-cream card-cream-hover rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300';
+                card.innerHTML = `
+                    <div class="relative h-56 bg-white overflow-hidden border-b border-crema-border">
+                        <img src="${product.img}" alt="${product.name}" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x600/520C17/D4AF37?text=Cueros+y+Afines'">
+                        
+                        <span class="absolute top-3 left-3 bg-vino text-white text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider border border-dorado">
+                            ${product.badge}
+                        </span>
+
+                        <button onclick="openQuickView(${product.id})" class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white text-negro hover:bg-vino hover:text-white flex items-center justify-center shadow-lg transition-colors" title="Vista Rápida">
+                            <i class="fa-solid fa-eye text-xs"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <div class="flex items-center justify-between text-[10px] font-extrabold text-vino uppercase mb-1">
+                                <span>${product.gender}</span>
+                                <span>${product.category}</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-negro line-clamp-1">${product.name}</h3>
+                            <p class="text-xs text-negro-muted line-clamp-2 mt-1 font-medium">${product.desc}</p>
+                        </div>
+
+                        <div class="pt-3 border-t border-crema-border flex items-center justify-between">
+                            <div>
+                                <span class="text-[9px] uppercase font-bold text-negro-muted block">Precio Ref.</span>
+                                <span class="text-lg font-serif font-extrabold text-negro">S/. ${product.price.toFixed(2)}</span>
+                            </div>
+
+                            <button onclick="addToQuoteCart(${product.id})" class="px-3.5 py-2 bg-vino hover:bg-vino-light text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition-colors flex items-center gap-1.5">
+                                <i class="fa-solid fa-plus text-dorado"></i> Cotizar
+                            </button>
+                        </div>
+                    </div>
+                `;
+                productGrid.appendChild(card);
+            });
+        }
+
+        // EVENTOS DE FILTRADO
+        function setupFilterEvents() {
+            // Categorías
+            document.querySelectorAll('#filter-categories button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('#filter-categories button').forEach(b => {
+                        b.className = 'cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-negro border border-crema-border hover:bg-vino hover:text-white transition-all';
+                    });
+                    btn.className = 'cat-btn active px-4 py-2 rounded-xl text-xs font-bold bg-vino text-white shadow-md';
+                    activeCategory = btn.getAttribute('data-cat');
+                    renderProducts();
+                });
+            });
+
+            // Género
+            document.querySelectorAll('#filter-gender button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('#filter-gender button').forEach(b => {
+                        b.className = 'gender-btn flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-crema text-negro border border-crema-border hover:bg-vino hover:text-white text-center';
+                    });
+                    btn.className = 'gender-btn active flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-vino text-white text-center';
+                    activeGender = btn.getAttribute('data-gender');
+                    renderProducts();
+                });
+            });
+
+            // Material
+            document.querySelectorAll('#filter-material button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('#filter-material button').forEach(b => {
+                        b.className = 'mat-btn flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-crema text-negro border border-crema-border hover:bg-vino hover:text-white text-center';
+                    });
+                    btn.className = 'mat-btn active flex-1 py-2 px-3 rounded-lg text-xs font-bold bg-vino text-white text-center';
+                    activeMaterial = btn.getAttribute('data-mat');
+                    renderProducts();
+                });
+            });
+
+            // Buscador
+            document.getElementById('search-input').addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                renderProducts();
+            });
+
+            // Ordenar
+            document.getElementById('sort-select').addEventListener('change', (e) => {
+                sortOption = e.target.value;
+                renderProducts();
+            });
+
+            // Reset
+            document.getElementById('btn-reset-filters').addEventListener('click', () => {
+                activeCategory = 'all';
+                activeGender = 'all';
+                activeMaterial = 'all';
+                searchQuery = '';
+                document.getElementById('search-input').value = '';
+                renderProducts();
+            });
+
+            // Toggles de Navegación y Cart
+            document.getElementById('btn-menu-mobile').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+            document.getElementById('btn-cart-drawer').addEventListener('click', toggleCartDrawer);
+            document.getElementById('btn-close-cart').addEventListener('click', toggleCartDrawer);
+            document.getElementById('btn-close-modal').addEventListener('click', closeModal);
+
+            // Formulario de Contacto
+            document.getElementById('contact-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                showToast("¡Mensaje enviado con éxito al taller! Nos comunicaremos contigo.");
+                e.target.reset();
+            });
+
+            document.getElementById('btn-cart-whatsapp').addEventListener('click', sendCartWhatsApp);
+        }
+
+        // LÓGICA DE SIMULADOR DE MONOGRAMA
+        function setupMonogramEvents() {
+            const input = document.getElementById('monogram-text');
+            const preview = document.getElementById('monogram-preview');
+
+            input.addEventListener('input', (e) => {
+                const val = e.target.value.toUpperCase();
+                preview.innerText = val ? val.split('').join(' . ') : 'A . B . C .';
+            });
+        }
+
+        // LÓGICA DE COTIZADOR EN VIVO
+        function setupCalculatorEvents() {
+            const prodSelect = document.getElementById('calc-product');
+            const matSelect = document.getElementById('calc-material');
+            const engSelect = document.getElementById('calc-engraving');
+            const qtyInput = document.getElementById('calc-qty');
+            const totalDisplay = document.getElementById('calc-total-display');
+            const typeBadge = document.getElementById('calc-type-badge');
+            const btnSendCalc = document.getElementById('btn-send-calc-whatsapp');
+
+            function updateCalculator() {
+                const basePrice = parseFloat(prodSelect.options[prodSelect.selectedIndex].getAttribute('data-base'));
+                const matMult = parseFloat(matSelect.options[matSelect.selectedIndex].getAttribute('data-mult'));
+                const engAdd = parseFloat(engSelect.options[engSelect.selectedIndex].getAttribute('data-add'));
+                const qty = parseInt(qtyInput.value) || 1;
+
+                let unitPrice = (basePrice * matMult) + engAdd;
+                
+                // Descuento por mayor a partir de 12 unidades
+                if (qty >= 12) {
+                    unitPrice *= 0.85; // 15% desc extra
+                    typeBadge.innerHTML = '<span>Precio Mayorista (-15%)</span><i class="fa-solid fa-boxes-packing"></i>';
+                } else {
+                    typeBadge.innerHTML = '<span>Compra al Detalle</span><i class="fa-solid fa-shopping-bag"></i>';
+                }
+
+                const total = unitPrice * qty;
+                totalDisplay.innerText = `S/. ${total.toFixed(2)}`;
+            }
+
+            prodSelect.addEventListener('change', updateCalculator);
+            matSelect.addEventListener('change', updateCalculator);
+            engSelect.addEventListener('change', updateCalculator);
+            qtyInput.addEventListener('input', updateCalculator);
+
+            btnSendCalc.addEventListener('click', () => {
+                const prodName = prodSelect.options[prodSelect.selectedIndex].text;
+                const matName = matSelect.options[matSelect.selectedIndex].text;
+                const engName = engSelect.options[engSelect.selectedIndex].text;
+                const qty = qtyInput.value;
+                const total = totalDisplay.innerText;
+                const initials = document.getElementById('monogram-text').value;
+
+                const msg = `Hola Cuero & Afines, deseo realizar el siguiente pedido cotizado desde la web:\n\n` +
+                            `• *Artículo:* ${prodName}\n` +
+                            `• *Material:* ${matName}\n` +
+                            `• *Grabado:* ${engName} (Iniciales: ${initials})\n` +
+                            `• *Cantidad:* ${qty} unidades\n` +
+                            `• *Cotización Estimada:* ${total}\n\n` +
+                            `¿Me confirman tiempos de elaboración y detalles de envío?`;
+
+                window.open(`https://wa.me/51987654321?text=${encodeURIComponent(msg)}`, '_blank');
+            });
+
+            updateCalculator();
+        }
+
+        // LÓGICA DE CARRITO / LISTA DE COTIZACIÓN
+        function addToQuoteCart(id) {
+            const item = productsList.find(p => p.id === id);
+            if (!item) return;
+
+            const existing = quoteCart.find(i => i.id === id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                quoteCart.push({ ...item, qty: 1 });
+            }
+
+            updateCartUI();
+            showToast(`"${item.name}" agregado a tu cotización.`);
+        }
+
+        function removeFromCart(id) {
+            quoteCart = quoteCart.filter(i => i.id !== id);
+            updateCartUI();
+        }
+
+        function changeCartQty(id, delta) {
+            const item = quoteCart.find(i => i.id === id);
+            if (!item) return;
+            item.qty += delta;
+            if (item.qty <= 0) {
+                removeFromCart(id);
+            } else {
+                updateCartUI();
+            }
+        }
+
+        function updateCartUI() {
+            const count = quoteCart.reduce((sum, i) => sum + i.qty, 0);
+            cartBadge.innerText = count;
+
+            cartItemsList.innerHTML = '';
+
+            if (quoteCart.length === 0) {
+                cartItemsList.innerHTML = `
+                    <div class="text-center py-12 text-negro-muted">
+                        <i class="fa-solid fa-briefcase text-4xl mb-2 text-vino"></i>
+                        <p class="text-xs font-bold">Tu lista de cotización está vacía.</p>
+                        <p class="text-[11px] mt-1">Explora el catálogo y añade carteras, morrales o accesorios.</p>
+                    </div>
+                `;
+            } else {
+                quoteCart.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'bg-white p-3 rounded-xl border border-crema-border flex items-center gap-3';
+                    div.innerHTML = `
+                        <img src="${item.img}" alt="${item.name}" class="w-12 h-12 object-cover rounded-lg shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-xs font-bold text-negro truncate">${item.name}</h4>
+                            <span class="text-[11px] font-serif font-extrabold text-vino">S/. ${item.price.toFixed(2)} c/u</span>
+                            <div class="flex items-center gap-2 mt-1">
+                                <button onclick="changeCartQty(${item.id}, -1)" class="w-5 h-5 rounded bg-vino text-white font-bold text-xs flex items-center justify-center">-</button>
+                                <span class="text-xs font-bold text-negro">${item.qty}</span>
+                                <button onclick="changeCartQty(${item.id}, 1)" class="w-5 h-5 rounded bg-vino text-white font-bold text-xs flex items-center justify-center">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-negro-muted hover:text-vino text-sm p-1">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    `;
+                    cartItemsList.appendChild(div);
+                });
+            }
+
+            const total = quoteCart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            cartTotalPrice.innerText = `S/. ${total.toFixed(2)}`;
+        }
+
+        function toggleCartDrawer() {
+            cartDrawer.classList.toggle('hidden');
+        }
+
+        function sendCartWhatsApp() {
+            if (quoteCart.length === 0) {
+                showToast("Añade artículos a la cotización primero.");
+                return;
+            }
+
+            let msg = "Hola Cuero & Afines, me gustaría solicitar cotización para los siguientes artículos:\n\n";
+            quoteCart.forEach((item, index) => {
+                msg += `${index + 1}. *${item.name}* [${item.badge}] x${item.qty} = S/. ${(item.price * item.qty).toFixed(2)}\n`;
+            });
+
+            const total = quoteCart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            msg += `\n*Monto Referencial Total: S/. ${total.toFixed(2)}*\n\nQuedo a la espera de su confirmación. ¡Muchas gracias!`;
+
+            window.open(`https://wa.me/51987654321?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        // VISTA RÁPIDA EN MODAL
+        function openQuickView(id) {
+            const product = productsList.find(p => p.id === id);
+            if (!product) return;
+
+            modalBody.innerHTML = `
+                <div class="rounded-2xl overflow-hidden bg-white border border-crema-border">
+                    <img src="${product.img}" alt="${product.name}" class="w-full h-64 object-cover">
+                </div>
+                <div class="space-y-4">
+                    <span class="bg-vino text-white text-[10px] font-extrabold px-2.5 py-1 rounded uppercase tracking-wider">
+                        ${product.badge}
+                    </span>
+                    <h3 class="font-serif text-2xl font-bold text-negro">${product.name}</h3>
+                    <p class="text-xs text-negro-muted font-medium leading-relaxed">${product.desc}</p>
+                    
+                    <div class="pt-2 border-t border-crema-border space-y-1 text-xs font-bold text-negro">
+                        <p><span class="text-negro-muted">Público:</span> ${product.gender}</p>
+                        <p><span class="text-negro-muted">Categoría:</span> ${product.category}</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <span class="font-serif text-2xl font-extrabold text-vino">S/. ${product.price.toFixed(2)}</span>
+                        <button onclick="addToQuoteCart(${product.id}); closeModal();" class="px-5 py-2.5 bg-vino hover:bg-vino-light text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md">
+                            Añadir a Cotización
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            quickviewModal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            quickviewModal.classList.add('hidden');
+        }
+
+        // TOAST SYSTEM
+        function showToast(msg) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'bg-vino text-white px-4 py-3 rounded-xl shadow-2xl border border-dorado text-xs font-bold flex items-center gap-2 animate-bounce';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-dorado"></i> ${msg}`;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3200);
+        }
+    </script>
+</body>
+</html>
