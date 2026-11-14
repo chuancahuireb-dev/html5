@@ -117,6 +117,171 @@
             color: #2A1201;
             text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2), -1px -1px 1px rgba(0, 0, 0, 0.8);
         }
+
+        /* ===== REALCE GENERAL DE TARJETAS ===== */
+        .card-cream {
+            position: relative;
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
+
+        /* Línea de acento dorada superior (aparece al pasar el cursor) */
+        .card-accent-top::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 3px;
+            background: linear-gradient(90deg, #AA851C, #E6C65A, #D4AF37, #E6C65A, #AA851C);
+            opacity: 0;
+            transition: opacity .35s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .card-accent-top:hover::before {
+            opacity: 1;
+        }
+
+        /* Íconos de las tarjetas de materiales */
+        .icon-tile {
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+        .material-card:hover .icon-tile {
+            transform: translateY(-2px) scale(1.06) rotate(-3deg);
+            box-shadow: 0 10px 20px -6px rgba(212, 175, 55, .5);
+        }
+
+        /* ===== TARJETAS DE PRODUCTO (generadas por JS) ===== */
+        .product-img {
+            transition: transform .6s cubic-bezier(.22, .61, .36, 1);
+        }
+        .product-card:hover .product-img {
+            transform: scale(1.09);
+        }
+        .product-badge {
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 12px -2px rgba(0, 0, 0, .45);
+        }
+        .quick-view-btn {
+            transition: opacity .3s ease, transform .3s ease, background-color .3s ease, color .3s ease;
+        }
+        @media (hover: hover) {
+            .quick-view-btn {
+                opacity: 0;
+                transform: translateY(8px) scale(.9);
+            }
+            .product-card:hover .quick-view-btn,
+            .product-card:focus-within .quick-view-btn {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .product-cta {
+            transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+        }
+        .product-card:hover .product-cta {
+            box-shadow: 0 8px 18px -6px rgba(82, 12, 23, .8);
+        }
+        .product-cta:active {
+            transform: scale(.96);
+        }
+
+        /* ===== TARJETAS DE CONTACTO ===== */
+        .contact-card {
+            transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+        }
+        .contact-card:hover {
+            transform: translateX(4px);
+            border-color: #D4AF37;
+            box-shadow: 0 12px 25px -8px rgba(0, 0, 0, .55);
+        }
+        .contact-card .contact-icon {
+            transition: transform .3s ease, background-color .3s ease;
+        }
+        .contact-card:hover .contact-icon {
+            transform: scale(1.08) rotate(-4deg);
+            background-color: #6E1222;
+        }
+
+        /* ===== ÍTEMS DEL CARRITO / COTIZACIÓN ===== */
+        .cart-item {
+            transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+        }
+        .cart-item:hover {
+            border-color: #D4AF37;
+            box-shadow: 0 8px 18px -8px rgba(0, 0, 0, .4);
+            transform: translateY(-1px);
+        }
+
+        /* ===== INTERACCIONES JS EN TARJETAS ===== */
+        /* Spotlight dorado que sigue el cursor */
+        .card-cream::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(212, 175, 55, .16), transparent 70%);
+            opacity: 0;
+            transition: opacity .35s ease;
+            pointer-events: none;
+        }
+        .card-cream:hover::after { opacity: 1; }
+
+        /* Tilt 3D controlado por JS */
+        .tilt { will-change: transform; }
+
+        /* Botón de favoritos */
+        .fav-btn { transition: transform .25s ease, color .25s ease, background-color .25s ease; }
+        .fav-btn:hover { transform: scale(1.12); color: #e11d48; }
+        .fav-btn.faved { color: #e11d48; }
+        .fav-btn.faved i { animation: heart-pop .45s ease; }
+        @keyframes heart-pop {
+            0% { transform: scale(.3); }
+            55% { transform: scale(1.4); }
+            100% { transform: scale(1); }
+        }
+
+        /* Efecto ripple en botones */
+        .ripple { position: relative; overflow: hidden; }
+        .r-ink {
+            position: absolute;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, .5);
+            transform: scale(0);
+            animation: ripple-ink .6s ease-out forwards;
+            pointer-events: none;
+        }
+        @keyframes ripple-ink { to { transform: scale(2.8); opacity: 0; } }
+
+        /* Pulso del badge del carrito */
+        .badge-pop { animation: badge-pop .45s ease; }
+        @keyframes badge-pop {
+            0% { transform: scale(1); }
+            40% { transform: scale(1.45); }
+            100% { transform: scale(1); }
+        }
+
+        /* Entrada animada de ítems del carrito */
+        .cart-item { animation: cart-item-in .35s ease backwards; }
+        @keyframes cart-item-in {
+            from { opacity: 0; transform: translateX(14px); }
+            to { opacity: 1; transform: none; }
+        }
+        #cart-items-list.no-anim .cart-item { animation: none; }
+
+        /* Imagen de producto clicable */
+        .product-media { cursor: pointer; }
+
+        /* Botones de filtro con feedback táctil */
+        .cat-btn, .gender-btn, .mat-btn {
+            transition: transform .15s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+        }
+        .cat-btn:active, .gender-btn:active, .mat-btn:active { transform: scale(.95); }
+
+        /* Entrada del modal de bienvenida */
+        @keyframes modal-in {
+            from { opacity: 0; transform: scale(.9) translateY(16px); }
+            to { opacity: 1; transform: none; }
+        }
+        .animate__zoom-in { animation: modal-in .4s cubic-bezier(.22, .61, .36, 1) both; }
     </style>
 </head>
 <body class="bg-wine-pattern min-h-screen flex flex-col antialiased selection:bg-dorado selection:text-negro">
@@ -233,12 +398,21 @@
                                      class="w-full h-80 sm:h-96 object-cover rounded-2xl border border-crema-border"
                                      onerror="this.src='https://placehold.co/600x600/520C17/D4AF37?text=Cueros+y+Afines'">
                                 
-                                <div class="mt-4 p-4 rounded-xl bg-vino text-white flex items-center justify-between border border-dorado/40">
-                                    <div>
-                                        <p class="text-xs font-bold uppercase tracking-wider text-dorado">Garantía de Taller</p>
-                                        <p class="text-sm font-semibold">Costuras Reforzadas & Herrajes Antioxidantes</p>
+                                <div class="mt-4 p-4 rounded-xl relative overflow-hidden flex items-center gap-4 text-white bg-gradient-to-r from-vino-dark via-vino to-vino-light border border-dorado/40 shadow-lg shadow-black/30 group">
+                                    <!-- Brillo decorativo dorado -->
+                                    <span class="pointer-events-none absolute -top-8 -right-8 w-24 h-24 rounded-full bg-dorado/15 blur-2xl"></span>
+                                    <span class="pointer-events-none absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-dorado-light via-dorado to-dorado-dark"></span>
+
+                                    <div class="flex-1 min-w-0">
+                                        <p class="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-[0.18em] text-dorado">
+                                            <i class="fa-solid fa-certificate text-[9px]"></i> Garantía de Taller
+                                        </p>
+                                        <p class="mt-1 text-sm font-semibold leading-snug text-crema">
+                                            Costuras Reforzadas <span class="text-dorado">&amp;</span> Herrajes Antioxidantes
+                                        </p>
                                     </div>
-                                    <span class="w-10 h-10 rounded-full bg-dorado text-vino flex items-center justify-center font-bold text-lg">
+
+                                    <span class="shrink-0 w-11 h-11 rounded-full flex items-center justify-center text-lg text-vino-dark bg-gradient-to-br from-dorado-light via-dorado to-dorado-dark ring-1 ring-dorado-light/60 shadow-inner shadow-black/20 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                                         <i class="fa-solid fa-award"></i>
                                     </span>
                                 </div>
@@ -264,7 +438,7 @@
             </div>
 
             <!-- Panel de Control de Filtros (Fondo Crema con Letras Negras para Alta Claridad) -->
-            <div class="card-cream rounded-2xl p-6 mb-10 space-y-6 shadow-2xl">
+            <div class="card-cream card-accent-top rounded-2xl p-6 mb-10 space-y-6 shadow-2xl">
                 
                 <!-- Buscador y Ordenamiento -->
                 <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
@@ -394,8 +568,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     
                     <!-- Tarjeta 1: Cuero 100% Genuino -->
-                    <div class="card-cream p-6 rounded-2xl space-y-4 shadow-xl">
-                        <div class="w-14 h-14 rounded-2xl bg-vino text-dorado flex items-center justify-center text-2xl shadow-lg border border-dorado/40">
+                    <div class="card-cream card-cream-hover card-accent-top material-card p-6 rounded-2xl space-y-4 shadow-xl">
+                        <div class="icon-tile w-14 h-14 rounded-2xl bg-vino text-dorado flex items-center justify-center text-2xl shadow-lg border border-dorado/40">
                             <i class="fa-solid fa-shield-halved"></i>
                         </div>
                         <h3 class="font-serif font-bold text-xl text-negro">100% Cuero Vacuno Seleccionado</h3>
@@ -408,8 +582,8 @@
                     </div>
 
                     <!-- Tarjeta 2: Fusión Textil + Cuero -->
-                    <div class="card-cream p-6 rounded-2xl space-y-4 shadow-xl">
-                        <div class="w-14 h-14 rounded-2xl bg-vino text-dorado flex items-center justify-center text-2xl shadow-lg border border-dorado/40">
+                    <div class="card-cream card-cream-hover card-accent-top material-card p-6 rounded-2xl space-y-4 shadow-xl">
+                        <div class="icon-tile w-14 h-14 rounded-2xl bg-vino text-dorado flex items-center justify-center text-2xl shadow-lg border border-dorado/40">
                             <i class="fa-solid fa-layer-group"></i>
                         </div>
                         <h3 class="font-serif font-bold text-xl text-negro">Telas Textiles + Apliques en Cuero</h3>
@@ -422,8 +596,8 @@
                     </div>
 
                     <!-- Tarjeta 3: Herrajes y Costuras -->
-                    <div class="card-cream p-6 rounded-2xl space-y-4 shadow-xl">
-                        <div class="w-14 h-14 rounded-2xl bg-vino text-dorado flex items-center justify-center text-2xl shadow-lg border border-dorado/40">
+                    <div class="card-cream card-cream-hover card-accent-top material-card p-6 rounded-2xl space-y-4 shadow-xl">
+                        <div class="icon-tile w-14 h-14 rounded-2xl bg-vino text-dorado flex items-center justify-center text-2xl shadow-lg border border-dorado/40">
                             <i class="fa-solid fa-screwdriver-wrench"></i>
                         </div>
                         <h3 class="font-serif font-bold text-xl text-negro">Herrajes & Costura de Alta Resistencia</h3>
@@ -457,7 +631,7 @@
                     </div>
 
                     <!-- Simulador de Monograma Grabado -->
-                    <div class="card-cream p-6 rounded-2xl space-y-4 shadow-2xl">
+                    <div class="card-cream card-accent-top p-6 rounded-2xl space-y-4 shadow-2xl">
                         <h3 class="font-serif font-bold text-lg text-negro flex items-center justify-between">
                             <span>Simulador de Grabado Térmico</span>
                             <i class="fa-solid fa-stamp text-vino"></i>
@@ -476,13 +650,19 @@
                             <label class="block text-xs font-bold text-negro uppercase mb-1">Ingresa tus Iniciales o Nombre:</label>
                             <input type="text" id="monogram-text" value="C.A.G." maxlength="12" 
                                    class="w-full px-4 py-2.5 rounded-xl bg-white border border-crema-border text-negro font-mono text-center tracking-widest font-bold focus:outline-none focus:ring-2 focus:ring-vino">
+                            <div class="flex justify-end mt-2">
+                                <button type="button" onclick="copyMonogram()"
+                                        class="px-3 py-1.5 rounded-lg bg-vino text-white text-[10px] font-extrabold uppercase tracking-wider hover:bg-vino-light transition-colors flex items-center gap-1.5 shadow-sm">
+                                    <i class="fa-regular fa-copy text-dorado"></i> Copiar iniciales
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Formulador de Cotización Viva -->
                 <div class="lg:col-span-7">
-                    <div class="card-cream p-6 sm:p-8 rounded-2xl shadow-2xl space-y-5">
+                    <div class="card-cream card-accent-top p-6 sm:p-8 rounded-2xl shadow-2xl space-y-5">
                         <div class="flex items-center justify-between border-b border-crema-border pb-4">
                             <div>
                                 <h3 class="font-serif text-2xl font-bold text-negro">Cotizador Automático en Vivo</h3>
@@ -593,32 +773,38 @@
 
                         <!-- Tarjetas de información de contacto (Crema con Texto Negro) -->
                         <div class="space-y-4">
-                            <div class="card-cream p-4 rounded-xl flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-lg bg-vino text-dorado flex items-center justify-center shrink-0 font-bold">
+                            <div class="card-cream contact-card p-4 rounded-xl flex items-start gap-4 cursor-pointer select-none"
+                                 data-copy="Av. Prolongación Marroquinería 845, Sector Industrial, Lima, Perú"
+                                 onclick="copyContact(this)" title="Clic para copiar la dirección">
+                                <div class="contact-icon w-10 h-10 rounded-lg bg-vino text-dorado flex items-center justify-center shrink-0 font-bold">
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-negro text-sm">Dirección del Taller</h4>
+                                    <h4 class="font-bold text-negro text-sm">Dirección del Taller <i class="fa-regular fa-copy text-[10px] text-negro-muted ml-1"></i></h4>
                                     <p class="text-negro-muted text-xs">Av. Prolongación Marroquinería 845, Sector Industrial, Lima, Perú</p>
                                 </div>
                             </div>
 
-                            <div class="card-cream p-4 rounded-xl flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-lg bg-vino text-dorado flex items-center justify-center shrink-0 font-bold">
+                            <div class="card-cream contact-card p-4 rounded-xl flex items-start gap-4 cursor-pointer select-none"
+                                 data-copy="+51 987 654 321 / +51 912 345 678"
+                                 onclick="copyContact(this)" title="Clic para copiar los teléfonos">
+                                <div class="contact-icon w-10 h-10 rounded-lg bg-vino text-dorado flex items-center justify-center shrink-0 font-bold">
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-negro text-sm">Teléfonos Directos</h4>
+                                    <h4 class="font-bold text-negro text-sm">Teléfonos Directos <i class="fa-regular fa-copy text-[10px] text-negro-muted ml-1"></i></h4>
                                     <p class="text-negro-muted text-xs">+51 987 654 321 / +51 912 345 678</p>
                                 </div>
                             </div>
 
-                            <div class="card-cream p-4 rounded-xl flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-lg bg-vino text-dorado flex items-center justify-center shrink-0 font-bold">
+                            <div class="card-cream contact-card p-4 rounded-xl flex items-start gap-4 cursor-pointer select-none"
+                                 data-copy="contacto@cuerosyafines.pe"
+                                 onclick="copyContact(this)" title="Clic para copiar el correo">
+                                <div class="contact-icon w-10 h-10 rounded-lg bg-vino text-dorado flex items-center justify-center shrink-0 font-bold">
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-negro text-sm">Correo Electrónico</h4>
+                                    <h4 class="font-bold text-negro text-sm">Correo Electrónico <i class="fa-regular fa-copy text-[10px] text-negro-muted ml-1"></i></h4>
                                     <p class="text-negro-muted text-xs">contacto@cuerosyafines.pe</p>
                                 </div>
                             </div>
@@ -627,7 +813,7 @@
 
                     <!-- Formulario de Mensaje -->
                     <div class="lg:col-span-7">
-                        <form id="contact-form" class="card-cream p-6 sm:p-8 rounded-2xl shadow-2xl space-y-4">
+                        <form id="contact-form" class="card-cream card-accent-top p-6 sm:p-8 rounded-2xl shadow-2xl space-y-4">
                             <h3 class="font-serif text-2xl font-bold text-negro mb-1">Enviar Consulta al Taller</h3>
                             
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -735,9 +921,59 @@
         </div>
     </div>
 
+    <!-- MODAL DE BIENVENIDA -->
+    <div id="welcome-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="card-cream card-accent-top max-w-lg w-full rounded-3xl relative shadow-2xl overflow-hidden animate__zoom-in">
+            
+            <!-- Cabecera -->
+            <div class="relative bg-gradient-to-r from-vino-dark via-vino to-vino-light text-white p-6 text-center border-b border-dorado/40">
+                <button id="btn-close-welcome" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-vino-dark text-crema hover:text-dorado flex items-center justify-center transition-colors" title="Cerrar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-dorado-light via-dorado to-dorado-dark text-vino-dark flex items-center justify-center text-2xl shadow-lg ring-1 ring-dorado/50">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold mt-3">¡Bienvenido a Cueros &amp; Afines!</h3>
+                <p class="text-crema text-xs mt-1 uppercase tracking-widest">Taller Artesanal de Marroquinería · Lima, Perú</p>
+            </div>
+
+            <!-- Contenido -->
+            <div class="p-6 space-y-4">
+                <p class="text-negro text-sm font-medium text-center leading-relaxed">
+                    Confeccionamos <strong>carteras, mochilas, calzado, correas, billeteras, morrales y monederos</strong> 
+                    en <strong>cuero vacuno legítimo</strong> y finas telas textiles, para <strong>Dama y Caballero</strong>.
+                </p>
+
+                <div class="grid grid-cols-3 gap-2 text-center">
+                    <div class="bg-crema-accent border border-crema-border rounded-xl py-2 px-1">
+                        <i class="fa-solid fa-shield-halved text-vino"></i>
+                        <p class="text-[9px] font-extrabold uppercase text-negro mt-1">100% Cuero</p>
+                    </div>
+                    <div class="bg-crema-accent border border-crema-border rounded-xl py-2 px-1">
+                        <i class="fa-solid fa-stamp text-vino"></i>
+                        <p class="text-[9px] font-extrabold uppercase text-negro mt-1">Grabado a Fuego</p>
+                    </div>
+                    <div class="bg-crema-accent border border-crema-border rounded-xl py-2 px-1">
+                        <i class="fa-solid fa-truck-fast text-vino"></i>
+                        <p class="text-[9px] font-extrabold uppercase text-negro mt-1">Envíos Nacionales</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-2 pt-1">
+                    <a href="#catalogo" class="welcome-link flex-1 px-4 py-2.5 rounded-xl bg-vino hover:bg-vino-light text-white text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2 transition-colors shadow-md">
+                        <i class="fa-solid fa-layer-group text-dorado"></i> Explorar Catálogo
+                    </a>
+                    <button id="btn-welcome-ok" class="flex-1 px-4 py-2.5 rounded-xl bg-white border border-crema-border text-negro hover:border-dorado text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-hand-sparkles text-vino"></i> Seguir Navegando
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL DE VISTA RÁPIDA DE PRODUCTO -->
     <div id="quickview-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="card-cream max-w-2xl w-full rounded-3xl p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh]">
+        <div class="card-cream card-accent-top max-w-2xl w-full rounded-3xl p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh]">
             <button id="btn-close-modal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-vino text-white flex items-center justify-center hover:bg-vino-light">
                 <i class="fa-solid fa-xmark"></i>
             </button>
@@ -919,7 +1155,47 @@
             setupFilterEvents();
             setupCalculatorEvents();
             setupMonogramEvents();
+            initCardInteractions();
+            initWelcomeModal();
         });
+
+        // ===== MODAL DE BIENVENIDA =====
+        const welcomeModal = document.getElementById('welcome-modal');
+        let welcomeShown = false;
+
+        function initWelcomeModal() {
+            if (sessionStorage.getItem('welcomeShown')) return;
+
+            setTimeout(() => {
+                welcomeModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                welcomeShown = true;
+            }, 700);
+
+            document.getElementById('btn-close-welcome').addEventListener('click', closeWelcomeModal);
+            document.getElementById('btn-welcome-ok').addEventListener('click', closeWelcomeModal);
+
+            welcomeModal.addEventListener('click', (e) => {
+                if (e.target === welcomeModal) closeWelcomeModal();
+            });
+
+            welcomeModal.querySelectorAll('.welcome-link').forEach(link => {
+                link.addEventListener('click', closeWelcomeModal);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && welcomeShown && !welcomeModal.classList.contains('hidden')) {
+                    closeWelcomeModal();
+                }
+            });
+        }
+
+        function closeWelcomeModal() {
+            welcomeModal.classList.add('hidden');
+            document.body.style.overflow = '';
+            welcomeShown = false;
+            try { sessionStorage.setItem('welcomeShown', '1'); } catch (err) { /* modo privado */ }
+        }
 
         // RENDERIZADO DEL CATÁLOGO DE PRODUCTOS (Tarjetas Pergamino Crema con Letras Negras)
         function renderProducts() {
@@ -952,39 +1228,48 @@
 
             filtered.forEach(product => {
                 const card = document.createElement('div');
-                card.className = 'card-cream card-cream-hover rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300';
+                card.className = 'card-cream card-cream-hover card-accent-top product-card rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300';
+                card.dataset.productId = product.id;
+                const isFav = favs.has(product.id);
                 card.innerHTML = `
-                    <div class="relative h-56 bg-white overflow-hidden border-b border-crema-border">
+                    <div class="product-media relative h-56 bg-white overflow-hidden border-b border-crema-border" onclick="openQuickView(${product.id})" title="Ver detalles">
                         <img src="${product.img}" alt="${product.name}" 
-                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                             class="product-img w-full h-full object-cover"
                              onerror="this.src='https://placehold.co/600x600/520C17/D4AF37?text=Cueros+y+Afines'">
+
+                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
                         
-                        <span class="absolute top-3 left-3 bg-vino text-white text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider border border-dorado">
+                        <span class="product-badge absolute top-3 left-3 bg-vino/95 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider border border-dorado">
                             ${product.badge}
                         </span>
 
-                        <button onclick="openQuickView(${product.id})" class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white text-negro hover:bg-vino hover:text-white flex items-center justify-center shadow-lg transition-colors" title="Vista Rápida">
+                        <button onclick="event.stopPropagation(); toggleFavorite(${product.id}, this)" 
+                                class="fav-btn absolute top-3 right-3 w-9 h-9 rounded-full bg-white/95 text-negro-muted flex items-center justify-center shadow-lg ${isFav ? 'faved' : ''}" title="Favorito">
+                            <i class="${isFav ? 'fa-solid' : 'fa-regular'} fa-heart text-sm"></i>
+                        </button>
+
+                        <button onclick="event.stopPropagation(); openQuickView(${product.id})" class="quick-view-btn absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white text-negro hover:bg-vino hover:text-white flex items-center justify-center shadow-lg" title="Vista Rápida">
                             <i class="fa-solid fa-eye text-xs"></i>
                         </button>
                     </div>
 
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
                         <div>
-                            <div class="flex items-center justify-between text-[10px] font-extrabold text-vino uppercase mb-1">
-                                <span>${product.gender}</span>
-                                <span>${product.category}</span>
+                            <div class="flex items-center gap-1.5 text-[9px] font-extrabold uppercase tracking-wide mb-2">
+                                <span class="bg-vino/10 text-vino px-2 py-0.5 rounded-full">${product.gender}</span>
+                                <span class="bg-dorado/20 text-dorado-dark px-2 py-0.5 rounded-full">${product.category}</span>
                             </div>
                             <h3 class="font-serif font-bold text-lg text-negro line-clamp-1">${product.name}</h3>
                             <p class="text-xs text-negro-muted line-clamp-2 mt-1 font-medium">${product.desc}</p>
                         </div>
 
-                        <div class="pt-3 border-t border-crema-border flex items-center justify-between">
+                        <div class="pt-3 border-t border-crema-border flex items-center justify-between gap-2">
                             <div>
                                 <span class="text-[9px] uppercase font-bold text-negro-muted block">Precio Ref.</span>
-                                <span class="text-lg font-serif font-extrabold text-negro">S/. ${product.price.toFixed(2)}</span>
+                                <span class="text-lg font-serif font-extrabold text-vino">S/. ${product.price.toFixed(2)}</span>
                             </div>
 
-                            <button onclick="addToQuoteCart(${product.id})" class="px-3.5 py-2 bg-vino hover:bg-vino-light text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition-colors flex items-center gap-1.5">
+                            <button onclick="addToQuoteCart(${product.id})" class="product-cta px-3.5 py-2 bg-vino hover:bg-vino-light text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md flex items-center gap-1.5">
                                 <i class="fa-solid fa-plus text-dorado"></i> Cotizar
                             </button>
                         </div>
@@ -992,6 +1277,9 @@
                 `;
                 productGrid.appendChild(card);
             });
+
+            bindSpotlight();
+            bindTilt();
         }
 
         // EVENTOS DE FILTRADO
@@ -1154,6 +1442,10 @@
 
             updateCartUI();
             showToast(`"${item.name}" agregado a tu cotización.`);
+
+            const cardImg = document.querySelector(`.product-card[data-product-id="${id}"] .product-img`)
+                            || document.querySelector('#modal-body img');
+            flyToCart(cardImg);
         }
 
         function removeFromCart(id) {
@@ -1176,6 +1468,9 @@
             const count = quoteCart.reduce((sum, i) => sum + i.qty, 0);
             cartBadge.innerText = count;
 
+            // Solo animar la entrada la primera vez; en actualizaciones evitar parpadeo
+            cartItemsList.classList.toggle('no-anim', cartRenderedOnce);
+
             cartItemsList.innerHTML = '';
 
             if (quoteCart.length === 0) {
@@ -1189,9 +1484,9 @@
             } else {
                 quoteCart.forEach(item => {
                     const div = document.createElement('div');
-                    div.className = 'bg-white p-3 rounded-xl border border-crema-border flex items-center gap-3';
+                    div.className = 'cart-item bg-white p-3 rounded-xl border border-crema-border flex items-center gap-3';
                     div.innerHTML = `
-                        <img src="${item.img}" alt="${item.name}" class="w-12 h-12 object-cover rounded-lg shrink-0">
+                        <img src="${item.img}" alt="${item.name}" class="w-12 h-12 object-cover rounded-lg shrink-0 ring-1 ring-crema-border">
                         <div class="flex-1 min-w-0">
                             <h4 class="text-xs font-bold text-negro truncate">${item.name}</h4>
                             <span class="text-[11px] font-serif font-extrabold text-vino">S/. ${item.price.toFixed(2)} c/u</span>
@@ -1211,6 +1506,7 @@
 
             const total = quoteCart.reduce((sum, i) => sum + (i.price * i.qty), 0);
             cartTotalPrice.innerText = `S/. ${total.toFixed(2)}`;
+            cartRenderedOnce = true;
         }
 
         function toggleCartDrawer() {
@@ -1240,11 +1536,11 @@
             if (!product) return;
 
             modalBody.innerHTML = `
-                <div class="rounded-2xl overflow-hidden bg-white border border-crema-border">
+                <div class="rounded-2xl overflow-hidden bg-white border border-crema-border shadow-lg">
                     <img src="${product.img}" alt="${product.name}" class="w-full h-64 object-cover">
                 </div>
                 <div class="space-y-4">
-                    <span class="bg-vino text-white text-[10px] font-extrabold px-2.5 py-1 rounded uppercase tracking-wider">
+                    <span class="product-badge inline-block bg-vino text-white text-[10px] font-extrabold px-2.5 py-1 rounded uppercase tracking-wider border border-dorado">
                         ${product.badge}
                     </span>
                     <h3 class="font-serif text-2xl font-bold text-negro">${product.name}</h3>
@@ -1282,6 +1578,144 @@
             setTimeout(() => {
                 toast.remove();
             }, 3200);
+        }
+
+        // ===== INTERACCIONES EXTRA EN TARJETAS =====
+        const favs = new Set();
+        let cartRenderedOnce = false;
+
+        function initCardInteractions() {
+            bindSpotlight();
+            bindTilt();
+            bindRipples();
+        }
+
+        // Spotlight dorado que sigue el cursor
+        function bindSpotlight() {
+            if (!window.matchMedia('(hover: hover)').matches) return;
+            document.querySelectorAll('.card-cream').forEach(el => {
+                if (el.dataset.spotBound) return;
+                el.dataset.spotBound = '1';
+                el.addEventListener('mousemove', (e) => {
+                    const r = el.getBoundingClientRect();
+                    el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+                    el.style.setProperty('--my', `${e.clientY - r.top}px`);
+                });
+            });
+        }
+
+        // Tilt 3D sutil en tarjetas de producto y materiales
+        function bindTilt() {
+            if (!window.matchMedia('(hover: hover)').matches) return;
+            document.querySelectorAll('.product-card, .material-card').forEach(el => {
+                if (el.dataset.tiltBound) return;
+                el.dataset.tiltBound = '1';
+                el.classList.add('tilt');
+                el.addEventListener('mousemove', (e) => {
+                    const r = el.getBoundingClientRect();
+                    const rx = -((e.clientY - r.top) / r.height - .5) * 7;
+                    const ry = ((e.clientX - r.left) / r.width - .5) * 7;
+                    el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+                });
+                el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+            });
+        }
+
+        // Efecto ripple en botones dentro de tarjetas
+        function bindRipples() {
+            document.addEventListener('click', (e) => {
+                const btn = e.target.closest('.product-cta, .quick-view-btn, #btn-send-calc-whatsapp, #btn-cart-whatsapp');
+                if (!btn) return;
+                spawnRipple(btn, e);
+            });
+        }
+
+        function spawnRipple(btn, e) {
+            const rect = btn.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const ink = document.createElement('span');
+            ink.className = 'r-ink';
+            ink.style.width = ink.style.height = `${size}px`;
+            ink.style.left = `${e.clientX - rect.left - size / 2}px`;
+            ink.style.top = `${e.clientY - rect.top - size / 2}px`;
+            btn.classList.add('ripple');
+            btn.appendChild(ink);
+            setTimeout(() => ink.remove(), 650);
+        }
+
+        // Favoritos por producto
+        function toggleFavorite(id, btn) {
+            const item = productsList.find(p => p.id === id);
+            if (!item) return;
+            if (favs.has(id)) {
+                favs.delete(id);
+                btn.classList.remove('faved');
+                btn.querySelector('i').className = 'fa-regular fa-heart';
+                showToast(`"${item.name}" quitado de favoritos.`);
+            } else {
+                favs.add(id);
+                btn.classList.add('faved');
+                btn.querySelector('i').className = 'fa-solid fa-heart';
+                showToast(`¡"${item.name}" agregado a favoritos!`);
+            }
+        }
+
+        // Animación "volar al carrito"
+        function flyToCart(imgEl) {
+            if (!imgEl || !cartBadge) return;
+            cartBadge.classList.remove('badge-pop');
+            void cartBadge.offsetWidth;
+            cartBadge.classList.add('badge-pop');
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            const r = imgEl.getBoundingClientRect();
+            const b = cartBadge.getBoundingClientRect();
+            const ghost = document.createElement('img');
+            ghost.src = imgEl.currentSrc || imgEl.src;
+            Object.assign(ghost.style, {
+                position: 'fixed', left: `${r.left}px`, top: `${r.top}px`,
+                width: `${r.width}px`, height: `${r.height}px`, borderRadius: '12px',
+                objectFit: 'cover', zIndex: '60', pointerEvents: 'none',
+                boxShadow: '0 12px 30px rgba(0,0,0,.55)',
+                transition: 'transform .7s cubic-bezier(.5,-0.1,.7,.35), opacity .7s ease'
+            });
+            document.body.appendChild(ghost);
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                ghost.style.transform = `translate(${b.left + b.width / 2 - (r.left + r.width / 2)}px, ${b.top + b.height / 2 - (r.top + r.height / 2)}px) scale(.06)`;
+                ghost.style.opacity = '.15';
+            }));
+            setTimeout(() => ghost.remove(), 760);
+        }
+
+        // Copiar al portapapeles (con fallback para file://)
+        function copyText(text) {
+            if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+            return new Promise((resolve, reject) => {
+                try {
+                    const ta = document.createElement('textarea');
+                    ta.value = text;
+                    ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none;';
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    ta.remove();
+                    resolve();
+                } catch (err) { reject(err); }
+            });
+        }
+
+        function copyContact(el) {
+            copyText(el.dataset.copy)
+                .then(() => showToast('Copiado al portapapeles.'))
+                .catch(() => showToast('No se pudo copiar. Cópialo manualmente.'));
+        }
+
+        function copyMonogram() {
+            const val = document.getElementById('monogram-text').value || 'C.A.G.';
+            copyText(val)
+                .then(() => showToast(`Iniciales "${val}" copiadas.`))
+                .catch(() => showToast('No se pudo copiar.'));
         }
     </script>
 </body>
