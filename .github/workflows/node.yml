@@ -5,5 +5,5 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Hola Mundo'
-        run: echo "Hola Mundo!"
+      - name: 'Hola Claudio'
+        run: echo "Hola Huancahuire!"
